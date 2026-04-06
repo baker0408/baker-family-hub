@@ -4,10 +4,11 @@ import { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import CalendarView from "@/components/CalendarView";
 import ATMView from "@/components/ATMView";
-import { CalendarIcon, ATMIcon } from "@/components/Icons";
+import WeatherView from "@/components/WeatherView";
+import { CalendarIcon, WeatherIcon, ATMIcon } from "@/components/Icons";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"calendar" | "atm">("calendar");
+  const [activeTab, setActiveTab] = useState<"calendar" | "weather" | "atm">("calendar");
 
   return (
     <div className="flex flex-col-reverse md:flex-row h-screen overflow-hidden bg-bg">
@@ -24,6 +25,17 @@ export default function Home() {
           >
             <CalendarIcon size={16} />
             Calendar
+          </button>
+          <button
+            onClick={() => setActiveTab("weather")}
+            className={`flex-1 py-3 flex items-center justify-center gap-1.5 text-sm font-medium transition-colors duration-150 ${
+              activeTab === "weather"
+                ? "text-text-primary border-t-2 border-accent"
+                : "text-text-secondary"
+            }`}
+          >
+            <WeatherIcon size={16} />
+            Weather
           </button>
           <button
             onClick={() => setActiveTab("atm")}
@@ -46,7 +58,9 @@ export default function Home() {
 
       {/* Main content area */}
       <main className="flex-1 overflow-hidden">
-        {activeTab === "calendar" ? <CalendarView /> : <ATMView />}
+        {activeTab === "calendar" && <CalendarView />}
+        {activeTab === "weather" && <WeatherView />}
+        {activeTab === "atm" && <ATMView />}
       </main>
     </div>
   );

@@ -1,13 +1,16 @@
-import { CalendarIcon, ATMIcon } from "@/components/Icons";
+import { CalendarIcon, WeatherIcon, ATMIcon } from "@/components/Icons";
+
+type TabId = "calendar" | "weather" | "atm";
 
 interface SidebarProps {
-  activeTab: "calendar" | "atm";
-  onTabChange: (tab: "calendar" | "atm") => void;
+  activeTab: TabId;
+  onTabChange: (tab: TabId) => void;
 }
 
 export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
   const tabs = [
     { id: "calendar" as const, label: "Calendar", Icon: CalendarIcon },
+    { id: "weather" as const, label: "Weather", Icon: WeatherIcon },
     { id: "atm" as const, label: "Emmett's Bank", Icon: ATMIcon },
   ];
 
