@@ -3,7 +3,7 @@ interface IconProps {
   className?: string;
 }
 
-export function CalendarIcon({ size = 20, className }: IconProps) {
+export function CalendarIcon({ size = 32, className }: IconProps) {
   return (
     <svg
       className={className}
@@ -27,7 +27,7 @@ export function CalendarIcon({ size = 20, className }: IconProps) {
   );
 }
 
-export function WeatherIcon({ size = 20, className }: IconProps) {
+export function WeatherIcon({ size = 32, className }: IconProps) {
   return (
     <svg
       className={className}
@@ -53,7 +53,7 @@ export function WeatherIcon({ size = 20, className }: IconProps) {
   );
 }
 
-export function ATMIcon({ size = 20, className }: IconProps) {
+export function ATMIcon({ size = 32, className }: IconProps) {
   return (
     <svg
       className={className}

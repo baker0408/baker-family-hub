@@ -17,35 +17,35 @@ export default function Home() {
         <nav className="flex">
           <button
             onClick={() => setActiveTab("calendar")}
-            className={`flex-1 py-3 flex items-center justify-center gap-1.5 text-sm font-medium transition-colors duration-150 ${
+            className={`flex-1 py-5 flex items-center justify-center gap-2.5 text-lg font-medium transition-colors duration-150 ${
               activeTab === "calendar"
-                ? "text-text-primary border-t-2 border-accent"
+                ? "text-text-primary border-t-[3px] border-accent"
                 : "text-text-secondary"
             }`}
           >
-            <CalendarIcon size={16} />
+            <CalendarIcon size={32} />
             Calendar
           </button>
           <button
             onClick={() => setActiveTab("weather")}
-            className={`flex-1 py-3 flex items-center justify-center gap-1.5 text-sm font-medium transition-colors duration-150 ${
+            className={`flex-1 py-5 flex items-center justify-center gap-2.5 text-lg font-medium transition-colors duration-150 ${
               activeTab === "weather"
-                ? "text-text-primary border-t-2 border-accent"
+                ? "text-text-primary border-t-[3px] border-accent"
                 : "text-text-secondary"
             }`}
           >
-            <WeatherIcon size={16} />
+            <WeatherIcon size={32} />
             Weather
           </button>
           <button
             onClick={() => setActiveTab("atm")}
-            className={`flex-1 py-3 flex items-center justify-center gap-1.5 text-sm font-medium transition-colors duration-150 ${
+            className={`flex-1 py-5 flex items-center justify-center gap-2.5 text-lg font-medium transition-colors duration-150 ${
               activeTab === "atm"
-                ? "text-text-primary border-t-2 border-accent"
+                ? "text-text-primary border-t-[3px] border-accent"
                 : "text-text-secondary"
             }`}
           >
-            <ATMIcon size={16} />
+            <ATMIcon size={32} />
             Emmett's Bank
           </button>
         </nav>
