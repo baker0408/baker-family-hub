@@ -111,69 +111,69 @@ export default function WeatherView() {
   const { current, today, forecast } = weather;
 
   return (
-    <div className="h-full w-full overflow-y-auto bg-bg p-6">
-      <div className="mx-auto max-w-2xl space-y-6">
+    <div className="flex h-full w-full flex-col bg-bg px-4 py-4 sm:px-6">
+      <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col">
         {/* Hero: Current Conditions */}
-        <div className="flex flex-col items-center py-6 text-center">
-          <span className="text-8xl leading-none">
+        <div className="flex flex-1 flex-col items-center justify-center text-center">
+          <span className="leading-none" style={{ fontSize: "9rem" }}>
             {getWeatherEmoji(current.weatherCode, current.isDay)}
           </span>
-          <p className="mt-4 text-6xl font-bold text-text-primary">
+          <p className="mt-2 font-bold text-text-primary" style={{ fontSize: "5rem", lineHeight: 1 }}>
             {Math.round(current.temperature)}°
           </p>
-          <p className="mt-2 text-xl capitalize text-text-primary">
+          <p className="mt-2 text-2xl font-semibold capitalize text-text-primary">
             {current.description}
           </p>
-          <p className="mt-1 text-base text-text-secondary">
+          <p className="mt-1 text-lg text-text-secondary">
             Feels like {Math.round(current.feelsLike)}°
           </p>
-          <p className="mt-1 text-sm text-text-secondary">
+          <p className="mt-0.5 text-sm text-text-secondary">
             {weather.location}
           </p>
         </div>
 
         {/* Today's Details */}
-        <div className="rounded-2xl border border-accent/20 bg-sidebar p-4">
-          <div className="grid grid-cols-3 gap-4 sm:grid-cols-6">
+        <div className="shrink-0 rounded-2xl border border-accent/20 bg-sidebar p-4">
+          <div className="grid grid-cols-3 gap-y-4 gap-x-3 sm:grid-cols-6">
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">🌡️</span>
-              <span className="text-xs text-text-secondary">Hi / Lo</span>
-              <span className="text-sm font-semibold text-text-primary">
+              <span className="text-2xl">🌡️</span>
+              <span className="text-xs font-medium text-text-secondary">Hi / Lo</span>
+              <span className="text-sm font-bold text-text-primary">
                 {Math.round(today.high)}° / {Math.round(today.low)}°
               </span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">💧</span>
-              <span className="text-xs text-text-secondary">Humidity</span>
-              <span className="text-sm font-semibold text-text-primary">
+              <span className="text-2xl">💧</span>
+              <span className="text-xs font-medium text-text-secondary">Humidity</span>
+              <span className="text-sm font-bold text-text-primary">
                 {current.humidity}%
               </span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">💨</span>
-              <span className="text-xs text-text-secondary">Wind</span>
-              <span className="text-sm font-semibold text-text-primary">
+              <span className="text-2xl">💨</span>
+              <span className="text-xs font-medium text-text-secondary">Wind</span>
+              <span className="text-sm font-bold text-text-primary">
                 {Math.round(current.windSpeed)} mph
               </span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">🌧️</span>
-              <span className="text-xs text-text-secondary">Rain</span>
-              <span className="text-sm font-semibold text-text-primary">
+              <span className="text-2xl">🌧️</span>
+              <span className="text-xs font-medium text-text-secondary">Rain</span>
+              <span className="text-sm font-bold text-text-primary">
                 {today.precipitationChance}%
               </span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">🌅</span>
-              <span className="text-xs text-text-secondary">Sunrise</span>
-              <span className="text-sm font-semibold text-text-primary">
+              <span className="text-2xl">🌅</span>
+              <span className="text-xs font-medium text-text-secondary">Sunrise</span>
+              <span className="text-sm font-bold text-text-primary">
                 {today.sunrise}
               </span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">🌇</span>
-              <span className="text-xs text-text-secondary">Sunset</span>
-              <span className="text-sm font-semibold text-text-primary">
+              <span className="text-2xl">🌇</span>
+              <span className="text-xs font-medium text-text-secondary">Sunset</span>
+              <span className="text-sm font-bold text-text-primary">
                 {today.sunset}
               </span>
             </div>
@@ -181,23 +181,23 @@ export default function WeatherView() {
         </div>
 
         {/* 5-Day Forecast */}
-        <div>
-          <h2 className="mb-3 text-lg font-semibold text-text-primary">
+        <div className="mt-4 shrink-0">
+          <h2 className="mb-3 text-xl font-bold text-text-primary">
             Next 5 Days
           </h2>
-          <div className="flex gap-3 overflow-x-auto pb-2">
+          <div className="grid grid-cols-5 gap-2">
             {forecast.slice(0, 5).map((day) => (
               <div
                 key={day.date}
-                className="flex min-w-[110px] flex-1 flex-col items-center gap-2 rounded-xl border border-accent/20 bg-sidebar-active p-3"
+                className="flex flex-col items-center gap-1.5 rounded-2xl border border-accent/20 bg-sidebar-active p-3"
               >
-                <span className="text-sm font-semibold text-text-primary">
+                <span className="text-sm font-bold text-text-primary">
                   {day.dayName}
                 </span>
-                <span className="text-3xl leading-none">
+                <span className="text-5xl leading-none">
                   {getWeatherEmoji(day.weatherCode)}
                 </span>
-                <span className="text-sm font-semibold text-text-primary">
+                <span className="text-sm font-bold text-text-primary">
                   {Math.round(day.high)}° / {Math.round(day.low)}°
                 </span>
                 {day.precipitationChance > 0 && (
