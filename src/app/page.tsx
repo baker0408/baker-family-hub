@@ -34,7 +34,7 @@ export default function Home() {
             }`}
           >
             <ATMIcon size={16} />
-            ATM
+            Emmett's Bank
           </button>
         </nav>
       </div>

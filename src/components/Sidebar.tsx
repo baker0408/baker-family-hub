@@ -8,7 +8,7 @@ interface SidebarProps {
 export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
   const tabs = [
     { id: "calendar" as const, label: "Calendar", Icon: CalendarIcon },
-    { id: "atm" as const, label: "ATM", Icon: ATMIcon },
+    { id: "atm" as const, label: "Emmett's Bank", Icon: ATMIcon },
   ];
 
   return (
